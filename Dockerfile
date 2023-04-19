@@ -1,4 +1,4 @@
-FROM ruby:alpine3.7
+FROM ruby:3.2.2-alpine
 
 RUN apk add --no-cache \
 	build-base \
@@ -8,8 +8,7 @@ RUN apk add --no-cache \
 	openssl-dev \
 	--virtual build-deps \
 	&& apk add --no-cache \
-	--repository=http://dl-cdn.alpinelinux.org/alpine/v3.8/main \
-	libssl1.0 \
+	libssl3 \
 	&& apk add --no-cache \
 	git \
 	&& gem install \
