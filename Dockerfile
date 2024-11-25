@@ -1,4 +1,4 @@
-FROM ruby:3.3.4-alpine
+FROM ruby:3.3.6-alpine
 
 RUN apk add --no-cache \
 	build-base \
