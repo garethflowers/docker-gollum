@@ -1,4 +1,5 @@
 #!/bin/sh
+set -xe
 export IMAGE_NAME=garethflowers/gollum
 
 docker build \
