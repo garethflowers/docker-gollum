@@ -1,19 +1,18 @@
 FROM ruby:3.4.7-alpine
 
-RUN apk add --no-cache \
+RUN apk add --no-cache --virtual build-deps \
 	build-base \
 	cmake \
 	icu-dev \
 	icu-libs \
 	openssl-dev \
-	--virtual build-deps \
 	&& apk add --no-cache \
 	libssl3 \
-	&& apk add --no-cache \
 	git \
 	&& gem install \
 	github-markdown \
 	gollum \
+	-- --with-cflags="-Wno-error=implicit-function-declaration" \
 	&& apk del build-deps \
 	&& mkdir -p /opt/wiki \
 	&& git init /opt/wiki
